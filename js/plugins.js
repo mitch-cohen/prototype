@@ -19,6 +19,13 @@
             console[method] = noop;
         }
     }
+    yepnope([{
+    load: ['js/vendor/angular.min.js',
+        'js/vendor/angular-ui-ieshiv.min.js',
+        'js/vendor/angular-ui.min.js',
+        'js/vendor/angular-ui.min.css',
+        ]
+    }]);
 }());
 
 // Place any jQuery/helper plugins in here.
