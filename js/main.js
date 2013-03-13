@@ -2,6 +2,14 @@
 var app = angular.module('app',['ui']);
 
 
-function testCntl($scope){
-    $scope.message='Sparta';
-}
+app.directive("output",function(){
+    return {
+        compile: function compile(tElement, tAttrs) {
+            var iframe = $('<iframe />');
+            tElement.append(iframe);
+            return function postLink(scope, iElement, iAttrs) { }
+        }
+
+    };
+
+});
