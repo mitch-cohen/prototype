@@ -93,11 +93,12 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+ #all-fields{list-style: none;}
 
 
-
-
-
+ .field{ border:1px solid #adff2f; background-color:#dff0d8; border-radius: 3px;}
+.field-name{ color: #333; font-weight: bold;}
+.fields-value{font-style: italic;}
 
 
 

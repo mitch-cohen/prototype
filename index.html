@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/angular-ui.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css" >
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
@@ -23,16 +24,31 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-        <div  >
             <!-- Add your site or application content here -->
-            {{output}}
-            <textarea ui-tinymce ng-model="output"></textarea>
+        <div class="row-fluid" ng-controller="templateCntl">
+            <div class="span9">
+                <textarea ui-tinymce ng-model="content" ng-init=""></textarea>
+                <div htmloutput model="content" parse="parse"></div>
+            </div>
+            <div class="span3">
+                <ul id="all-fields">
+                    <li>
+                        Add more fields: <input ng-model="new_field.pattern" placeholder="name" type="text">&nbsp;<input placeholder="value" ng-model="new_field.value"></li>
+                    <li><di class="btn" ng-click="add()">Add</di> </li>
+                    <li ng-repeat="field in fields" class="field">
+                       <span class="field-name">{{field.pattern}}</span>:<span class="field-value">{{field.value}}</span>
+                    </li>
+                </ul>
 
-
+            </div>
         </div>
 
+
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="js/vendor/underscore-min.js" type="text/javascript"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+        <script src="/js/vendor/bootstrap.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="js/vendor/tiny_mce/tiny_mce_src.js"></script>
         <script type="text/javascript" src="js/vendor/tiny_mce/jquery.tinymce.js"></script>
         <script type="text/javascript" src="js/vendor/angular.min.js"></script>
