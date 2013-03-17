@@ -14,9 +14,14 @@ var documentParser=function(){
                var pattern = new RegExp("\\["+ t.pattern+"\\]","gi");
 
                console.log(pattern);
-               $str = $str.replace(pattern, t.value);
+               $str = $str.replace(pattern,'<span class=\'preview-value\'>'+t.value+'</span>' );
            });
            return $str;
+       },
+       removeToken: function(tkn){
+           _tokens=_.reject(_tokens,function(t){
+               return tkn.pattern=== t.pattern;
+           });
        },
        addToken:function(tkn){
            tkn=$.extend({pattern:"",value:""},tkn);
@@ -44,6 +49,11 @@ function templateCntl($scope){
         oDP.addToken($scope.new_field);
         $scope.fields  = oDP.getTokens();
         $scope.new_field={};
+
+    };
+    $scope.remove= function(token){
+        oDP.removeToken(token);
+        $scope.fields  = oDP.getTokens();
     };
 
 

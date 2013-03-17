@@ -36,7 +36,7 @@
                         Add more fields: <input ng-model="new_field.pattern" placeholder="name" type="text">&nbsp;<input placeholder="value" ng-model="new_field.value"></li>
                     <li><di class="btn" ng-click="add()">Add</di> </li>
                     <li ng-repeat="field in fields" class="field">
-                       <span class="field-name">{{field.pattern}}</span>:<span class="field-value">{{field.value}}</span>
+                       <span class="field-name">{{field.pattern}}</span>:<span class="field-value">{{field.value}}</span><span class='icon-remove-circle pull-right' ng-click="remove(field)"></span>
                     </li>
                 </ul>
 
